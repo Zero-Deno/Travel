@@ -1,6 +1,6 @@
 class ChatbotAI {
     constructor() {
-        this.apiKey = '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'; // Replace with your actual API key
+        this.apiKey = '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'; // Replace with your actual API key
         this.apiEndpoint = 'https://api.openai.com/v1/chat/completions';
         this.chatHistory = [];
         this.initializeEventListeners();
