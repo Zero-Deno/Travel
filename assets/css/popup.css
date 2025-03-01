@@ -1,0 +1,272 @@
+/* Chatbot Container */
+.chatbot-container {
+    position: fixed;
+    bottom: 10px;
+    right: 30px;
+    width: 380px;
+    height: 500px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.chatbot-container.active {
+    display: flex;
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Chatbot Header */
+.chatbot-header {
+    background: linear-gradient(135deg, #3494E6, #EC6EAD);
+    padding: 20px;
+    color: white;
+}
+
+.chatbot-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chatbot-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.chatbot-title h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.status {
+    font-size: 12px;
+    color: #4CEF7E;
+}
+
+.chatbot-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-close:hover {
+    transform: rotate(90deg);
+}
+
+/* Chatbot Body */
+.chatbot-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #F8F9FA;
+}
+
+.chatbot-welcome {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.welcome-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.chatbot-message {
+    max-width: 85%;
+    margin-bottom: 15px;
+    clear: both;
+}
+
+.chatbot-message p {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.chatbot-message-bot {
+    float: left;
+}
+
+.chatbot-message-bot p {
+    background: white;
+    border: 1px solid #E9ECEF;
+    border-bottom-left-radius: 5px;
+}
+
+.chatbot-message-user {
+    float: right;
+}
+
+.chatbot-message-user p {
+    background: #3494E6;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.suggestion-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.suggestion-chip {
+    background: white;
+    border: 1px solid #3494E6;
+    color: #3494E6;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.suggestion-chip:hover {
+    background: #3494E6;
+    color: white;
+}
+
+/* Chatbot Input Area */
+.chatbot-input-area {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #E9ECEF;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+    background: #F8F9FA;
+    border-radius: 25px;
+    padding: 8px 16px;
+}
+
+#chatbot-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.chatbot-send {
+    background: #3494E6;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chatbot-send:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+.powered-by {
+    text-align: center;
+    font-size: 12px;
+    color: #6C757D;
+    margin-top: 10px;
+}
+
+/* Scrollbar Styling */
+.chatbot-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatbot-body::-webkit-scrollbar-track {
+    background: #F8F9FA;
+}
+
+.chatbot-body::-webkit-scrollbar-thumb {
+    background: #CED4DA;
+    border-radius: 3px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .chatbot-container {
+        width: 300px;
+        height: 400px;
+        right: 15px;
+    }
+}
+
+/* Add to your existing popup.css */
+
+.typing-indicator {
+    padding: 20px;
+}
+
+.typing-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    background: #3494E6;
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
